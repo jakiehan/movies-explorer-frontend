@@ -1,0 +1,142 @@
+.profile {
+  padding-top: 74px;
+}
+
+.profile__form {
+  max-width: 410px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.profile__form-fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.profile__form-title {
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 500;
+  margin: 0 0 123px;
+  color: #fff;
+  text-align: center;
+}
+
+.profile__form-label {
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile__form-label:last-of-type {
+  margin-top: 18px;
+}
+
+.profile__form-field {
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 400;
+  max-width: 100%;
+  text-align: end;
+  padding: 0;
+  color: #fff;
+  background-color: inherit;
+  outline: none;
+  border: none;
+}
+
+.profile__form-field:invalid {
+  color: #EE3465;
+}
+
+.profile__form-validation-error {
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  display: block;
+  min-height: 16px;
+  color: #EE3465;
+  border-bottom: 1px solid #424242;
+}
+
+.profile__form-validation-error:last-of-type {
+  border-bottom: none;
+}
+
+.profile__form-btn-submit {
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+  width: 120px;
+  height: 30px;
+  margin: 197px auto 0;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.profile__form-link {
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #EE3465;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 9px;
+}
+
+.transparency-link {
+  opacity: 1;
+  transition: opacity 0.1s ease;
+}
+
+.transparency-link:hover {
+  opacity: 70%;
+}
+
+@media screen and (max-width: 934px) {
+  .profile {
+    padding-top: 236px;
+  }
+
+  .profile__form-title {
+    margin-bottom: 97px;
+  }
+
+  .profile__form-btn-submit {
+    margin-top: 187px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .profile {
+    padding-top: 70px;
+  }
+
+  .profile__form {
+    max-width: 260px;
+  }
+
+  .profile__form-title {
+    margin-bottom: 81px;
+  }
+
+  .profile__form-btn-submit {
+    margin-top: 355px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .profile__form-link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

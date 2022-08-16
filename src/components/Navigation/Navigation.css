@@ -1,0 +1,139 @@
+.navigation {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.navigation_type_movies {
+  width: 100%;
+  gap: initial;
+  padding-left: 62px;
+}
+
+.navigation_type_menu {
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.navigation__wrapper {
+  display: flex;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+.navigation__wrapper_type_menu {
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  margin-top: 159px;
+}
+
+.navigation__link {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navigation__link_type_auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 32px;
+  border-radius: 3px;
+  color: #000;
+  background-color: #3DDC84;
+}
+
+.navigation__link_type_movies {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.navigation__link_type_menu {
+  font-size: 18px;
+  line-height: 22px;
+  padding: 2px 0;
+}
+
+.navigation__link_type_account {
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.navigation__link_type_account-menu {
+  margin-bottom: 91px;
+}
+
+.active {
+  font-weight: 500;
+}
+
+.navigation__profile-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #313131;
+  object-fit: none;
+  border-radius: 6px;
+}
+
+.transparency-link {
+  opacity: 1;
+  transition: opacity 0.1s ease;
+}
+
+.transparency-link:hover {
+  opacity: 70%;
+}
+
+@media screen and (max-width: 934px) {
+  .navigation_type_movies {
+    display: none;
+  }
+
+  .active {
+    border-bottom: 2px solid #fff;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .navigation {
+    gap: 14px;
+  }
+
+  .navigation__wrapper_type_menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    margin-top: 144px;
+  }
+
+  .navigation__link_type_auth {
+    width: 54px;
+    height: 26px;
+  }
+
+  .navigation__link {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .navigation__link_type_menu {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .navigation__link_type_account-menu {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 48px;
+  }
+}

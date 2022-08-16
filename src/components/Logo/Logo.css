@@ -1,0 +1,13 @@
+.logo {
+  width: 38px;
+  height: 38px;
+}
+
+.transparency-link {
+  opacity: 1;
+  transition: opacity 0.1s ease;
+}
+
+.transparency-link:hover {
+  opacity: 70%;
+}
