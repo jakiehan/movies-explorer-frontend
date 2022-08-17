@@ -21,7 +21,7 @@ const AuthForm = ({ title, btnTitle }) => {
             <label className="form__label">
               Имя
               <input
-                className="form__field input-hover"
+                className="form__field"
                 type="text"
                 name="name"
                 minLength="2"
@@ -37,7 +37,7 @@ const AuthForm = ({ title, btnTitle }) => {
         <label className={`form__label ${typeAuthClass}`}>
           E-mail
           <input
-            className="form__field input-hover"
+            className="form__field"
             type="email"
             name="email"
             value="pochta@yandex.ru"
@@ -50,7 +50,7 @@ const AuthForm = ({ title, btnTitle }) => {
         <label className={`form__label ${typeAuthClass}`}>
           Пароль
           <input
-            className="form__field input-hover"
+            className="form__field"
             type="password"
             name="password"
             placeholder="Введите пароль"

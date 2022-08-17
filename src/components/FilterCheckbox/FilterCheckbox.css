@@ -5,6 +5,9 @@
   border-left: 1px solid #505050;
   align-items: center;
   gap: 14px;
+  position: absolute;
+  top: 16px;
+  right: 0;
 }
 
 .checkbox-filter__title {
@@ -68,6 +71,7 @@
 
 @media screen and (max-width: 720px) {
   .checkbox-filter {
+    position: initial;
     border: none;
   }
 

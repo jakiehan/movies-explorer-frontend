@@ -5,7 +5,7 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox.js';
 
 const SearchForm = () => {
   return (
-    <div className="search input-hover">
+    <div className="search">
       <form className="search__form">
         <img
           className="search__icon"
@@ -15,6 +15,7 @@ const SearchForm = () => {
           className="search__field"
           type="search"
           placeholder="Фильм"
+          required
         />
         <button
           className="search__btn transparency-btn"
