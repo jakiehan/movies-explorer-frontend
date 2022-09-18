@@ -1,5 +1,5 @@
 import React from 'react';
-import './SectionContent.css'
+import './SectionContent.css';
 
 const SectionContent = ({ title, children, lineColorClass, widthContentClass }) => {
   return (

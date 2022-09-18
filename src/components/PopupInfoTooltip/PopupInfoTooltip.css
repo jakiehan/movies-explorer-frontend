@@ -1,0 +1,111 @@
+.popup-info-tooltip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, .9);
+  transition: visibility .2s, opacity .2s;
+  visibility: hidden;
+}
+
+.popup-info-tooltip_opened {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity .2s;
+}
+
+.popup-info-tooltip__container {
+  width: 400px;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #272727;
+  box-shadow: 0 2px 4px rgb(238 52 101 / 25%);
+}
+
+.popup-info-tooltip__message {
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 500;
+  margin: 50px 0 25px;
+  text-align: center;
+  color: #EE3465;
+}
+
+.popup-info-tooltip__icon {
+  width: 40px;
+}
+
+.popup-info-tooltip__btn-close {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: -45px;
+  right: -35px;
+  border: none;
+  padding: 0;
+  background-image: url(../../images/popup-close.svg);
+  background-size: cover;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 934px) {
+  .popup-info-tooltip__container {
+    width: 370px;
+    min-height: 150px;
+    padding: 15px;
+  }
+
+  .popup-info-tooltip__message {
+    font-size: 15px;
+    line-height: 17px;
+    margin: 40px 0 20px;
+  }
+
+  .popup-info-tooltip__icon {
+    width: 35px;
+  }
+
+  .popup-info-tooltip__btn-close {
+    width: 40px;
+    height: 40px;
+    right: -30px;
+    top: -40px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .popup-info-tooltip__container {
+    width: 280px;
+    min-height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .popup-info-tooltip__message {
+    font-size: 12px;
+    line-height: 14px;
+    margin: 30px 0 10px;
+  }
+
+  .popup-info-tooltip__icon {
+    width: 25px;
+  }
+
+  .popup-info-tooltip__btn-close {
+    width: 25px;
+    height: 25px;
+    right: -5px;
+    top: -30px;
+  }
+}

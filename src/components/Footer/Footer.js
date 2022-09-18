@@ -1,5 +1,6 @@
 import React from 'react';
-import './Footer.css'
+import './Footer.css';
+import { footerLink } from '../../utils/constants.js';
 
 const Footer = () => {
   return (
@@ -10,36 +11,18 @@ const Footer = () => {
           <p className="footer__copyright">&#169;2022</p>
           <nav className="footer__nav">
             <ul className="footer__links">
-              <li>
-                <a
-                  className="footer__link transparency-link"
-                  href="https://practicum.yandex.ru"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Яндекс.Практикум
-                </a>
-              </li>
-              <li>
-                <a
-                  className="footer__link transparency-link"
-                  href="https://github.com/jakiehan"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Github
-                </a>
-              </li>
-              <li>
-                <a
-                  className="footer__link transparency-link"
-                  href="https://t.me/jakiehan"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Telegram
-                </a>
-              </li>
+              {footerLink.map((link) =>(
+                <li key={link.id}>
+                  <a
+                    className="footer__link transparency-link"
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

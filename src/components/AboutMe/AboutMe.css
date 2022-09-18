@@ -1,5 +1,5 @@
 .about-me {
-  padding: 110px 0 125px;
+  padding: 110px 0 122px;
   box-sizing: content-box;
   color: #fff;
 }
@@ -105,7 +105,7 @@
 
 @media screen and (max-width: 720px) {
   .about-me {
-    padding: 70px 0;
+    padding: 70px 0 59px;
   }
 
   .about-me__info {

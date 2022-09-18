@@ -36,13 +36,14 @@
 
 .profile__form-label:last-of-type {
   margin-top: 18px;
+  margin-bottom: 164px;
 }
 
 .profile__form-field {
   font-size: 11px;
   line-height: 13px;
   font-weight: 400;
-  max-width: 100%;
+  width: 50%;
   text-align: end;
   padding: 0;
   color: #fff;
@@ -55,6 +56,16 @@
   color: #EE3465;
 }
 
+.profile__form-field:disabled {
+  color: #adacac;
+}
+
+/* Обход слета стилей при автозаполнении */
+.profile__form-field:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 50px #202020;
+  -webkit-text-fill-color: #fff;
+}
+
 .profile__form-validation-error {
   font-size: 10px;
   line-height: 12px;
@@ -63,24 +74,39 @@
   min-height: 16px;
   color: #EE3465;
   border-bottom: 1px solid #424242;
+  overflow-wrap: anywhere;
 }
 
 .profile__form-validation-error:last-of-type {
   border-bottom: none;
 }
 
-.profile__form-btn-submit {
+.profile__form-btn {
   font-size: 13px;
   line-height: 16px;
   font-weight: 400;
   width: 120px;
   height: 30px;
-  margin: 197px auto 0;
+  margin: 20px auto 0;
   padding: 0;
   color: #fff;
   cursor: pointer;
   background-color: transparent;
   border: none;
+  outline: none;
+}
+
+.profile__form-btn_type_submit {
+  max-width: 410px;
+  width: 100%;
+  height: 45px;
+  background-color: #4285F4;
+}
+
+.profile__form-btn_disabled_true {
+  pointer-events: none;
+  color: rgba(0, 0, 0, .6);
+  background: #2f2f2f;
 }
 
 .profile__form-link {
@@ -111,8 +137,8 @@
     margin-bottom: 97px;
   }
 
-  .profile__form-btn-submit {
-    margin-top: 187px;
+  .profile__form-label:last-of-type {
+    margin-bottom: 153px;
   }
 }
 
@@ -129,8 +155,7 @@
     margin-bottom: 81px;
   }
 
-  .profile__form-btn-submit {
-    margin-top: 355px;
+  .profile__form-btn {
     font-size: 12px;
     line-height: 15px;
   }
@@ -138,5 +163,9 @@
   .profile__form-link {
     font-size: 12px;
     line-height: 15px;
+  }
+
+  .profile__form-label:last-of-type {
+    margin-bottom: 321px;
   }
 }
