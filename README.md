@@ -33,7 +33,9 @@
 
 ### Ссылки:
 
-[Movies Explorer](https://jakimovies.nomoredomains.xyz)
+[Movies Explorer](https://jakimovies.nomoredomains.xyz)  
+
+[Pull requests](https://github.com/jakiehan/movies-explorer-frontend/pull/2)
 
 ### Инструкция по локальному развертыванию проекта
 - Склонируйте репозиторий:
