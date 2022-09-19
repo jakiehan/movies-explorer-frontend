@@ -1,4 +1,10 @@
+import validator from 'validator/es';
+import { backupTrailerLink } from './constants.js';
+
 export const refactorCardMovie = (cardMovie) => {
+
+  const trailerLink = validator.isURL(cardMovie.trailerLink) ? cardMovie.trailerLink : backupTrailerLink;
+
   return {
     country: cardMovie.country || 'Нет данных',
     director: cardMovie.director || 'Нет данных',
@@ -6,7 +12,7 @@ export const refactorCardMovie = (cardMovie) => {
     year: cardMovie.year || 'Нет данных',
     description: cardMovie.description || 'Нет данных',
     image: `https://api.nomoreparties.co${cardMovie.image.url}` || 'Нет данных',
-    trailerLink: cardMovie.trailerLink || 'https://www.youtube.com/watch?v=3QtqXM5sdaY&ab_channel=NewfilmZ',
+    trailerLink: trailerLink,
     nameRU: cardMovie.nameRU || 'Нет данных',
     nameEN: cardMovie.nameEN || 'Нет данных',
     thumbnail: `https://api.nomoreparties.co${cardMovie.image.formats.thumbnail.url}` || 'https://unsplash.com/photos/tS9Laea1ybE',

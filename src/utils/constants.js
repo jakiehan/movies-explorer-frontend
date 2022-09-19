@@ -81,21 +81,24 @@ export const messageError = {
 
 export const updateUserOkMessage = 'Информация профиля успешно обновлена';
 
+export const backupTrailerLink = 'https://www.youtube.com/watch?v=3QtqXM5sdaY&ab_channel=NewfilmZ';
+
 export const customValidityMessage = {
   tooShort: '`Текст должен быть не короче 2 символов. Длина текста сейчас',
   valueMissing: 'Заполните это поле',
-  patternMismatch: 'Поле может содержать только латиницу, кириллицу, пробел или дефис.'
+  patternMismatch: 'Поле может содержать только латиницу, кириллицу, пробел или дефис.',
+  patternMismatchEmail: 'Адрес не соответствует формату электронной почты',
 }
 
 export const RENDERING_CARDS_BY_SCREEN_WIDTH = {
-  WINDOW_INNER_WIDTH_LARGE: 1113,
-  WINDOW_INNER_WIDTH_MIDDLE: 661,
-  WINDOW_INNER_WIDTH_SMALL: 660,
+  WINDOW_INNER_WIDTH_LARGE: 1096,
+  WINDOW_INNER_WIDTH_SMALL: 643,
   INITIAL_NUMBER_OF_CARDS_LARGE: 12,
   INITIAL_NUMBER_OF_CARDS_MIDDLE: 8,
   INITIAL_NUMBER_OF_CARDS_SMALL: 5,
   ADDITIONAL_NUMBER_OF_CARDS_LARGE: 3,
-  ADDITIONAL_NUMBER_OF_CARDS_SMALL: 2,
+  ADDITIONAL_NUMBER_OF_CARDS_MIDDLE: 2,
+  ADDITIONAL_NUMBER_OF_CARDS_SMALL: 1,
 }
 
 export const MAIN_API_URL = 'https://api.jakimovies.nomoredomains.xyz';

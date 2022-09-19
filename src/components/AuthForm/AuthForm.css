@@ -78,6 +78,10 @@
 }
 /* ------------------------------------- */
 
+.form__field::placeholder {
+  color: #8B8B8B;
+}
+
 .form__validation-error {
   font-size: 10px;
   line-height: 12px;

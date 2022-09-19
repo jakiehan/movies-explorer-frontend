@@ -13,8 +13,8 @@ const Movies = ({ onCardBtnClick, listSaveMovies, onCardImageClick }) => {
 
   const {
     handleSortMovies,
-    setItemSessionStorage,
-    getItemSessionStorage,
+    setItemLocalStorage,
+    getItemLocalStorage,
     showLastSearchQuery,
     checkValuesInput,
     toggleCheckbox,
@@ -34,12 +34,12 @@ const Movies = ({ onCardBtnClick, listSaveMovies, onCardImageClick }) => {
 
   const handleSubmit = (formElemValues) => {
     setIsPreloader(true);
-    const movies = getItemSessionStorage('movies');
+    const movies = getItemLocalStorage('movies');
 
     if (movies === null) {
       moviesApi.getMovies()
         .then((res) => {
-          setItemSessionStorage('movies', res);
+          setItemLocalStorage('movies', res);
           handleSortMovies(res, formElemValues);
         })
         .catch((err) => {
@@ -58,7 +58,7 @@ const Movies = ({ onCardBtnClick, listSaveMovies, onCardImageClick }) => {
   }
 
   useEffect(() => {
-    const movies = getItemSessionStorage('movies');
+    const movies = getItemLocalStorage('movies');
     let result = checkValuesInput();
 
     if (result && movies && listSortedMovies.length !== 0) {

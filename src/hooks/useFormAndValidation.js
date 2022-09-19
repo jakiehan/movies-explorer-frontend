@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import validator from 'validator/es';
 import { customValidityMessage } from '../utils/constants.js';
 
 export function useFormAndValidation() {
@@ -6,7 +7,7 @@ export function useFormAndValidation() {
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
 
-  const { patternMismatch, tooShort, valueMissing } = customValidityMessage;
+  const { patternMismatch, patternMismatchEmail, tooShort, valueMissing } = customValidityMessage;
 
   const handleChange = (e) => {
     const { name } = e.target
@@ -14,7 +15,7 @@ export function useFormAndValidation() {
 
     if (name === 'name') {
       if (e.target.validity.tooShort) {
-        e.target.setCustomValidity(`${tooShort} ${e.target.value.length}`)
+        e.target.setCustomValidity(`${tooShort} ${value.length}`)
       } else {
         e.target.setCustomValidity('');
       }
@@ -27,6 +28,23 @@ export function useFormAndValidation() {
 
       if (e.target.validity.patternMismatch) {
         e.target.setCustomValidity(patternMismatch);
+      } else {
+        e.target.setCustomValidity('');
+      }
+    }
+
+    if (e.target.name === 'email') {
+
+      if (!validator.isEmail(value)) {
+        e.target.setCustomValidity(patternMismatchEmail);
+
+        if (value === '') {
+          e.target.setCustomValidity(valueMissing);
+        } else if (!value.includes('@')) {
+          e.target.setCustomValidity(`Адрес электронной почты должен содержать символ "@". Адрес ${value} не содержит символ "@"`);
+        } else if (value.endsWith('@')) {
+          e.target.setCustomValidity(`Введите часть адреса после символа "@". Адрес ${value} неполный`);
+        }
       } else {
         e.target.setCustomValidity('');
       }

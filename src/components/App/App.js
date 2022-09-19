@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import validator from 'validator/es';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 import Main from '../Main/Main.js';
 import Movies from '../Movies/Movies.js';
@@ -18,6 +19,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import { refactorCardMovie } from '../../utils/refactorCardMovie.js';
 import { messageError } from '../../utils/constants.js';
 import { updateUserOkMessage } from '../../utils/constants.js';
+import { backupTrailerLink } from '../../utils/constants.js';
 
 const App = () => {
 
@@ -174,7 +176,8 @@ const App = () => {
   }
 
   const handleCardImageClick = (cardMovie) => {
-    window.open(cardMovie.trailerLink);
+    const trailerLink = validator.isURL(cardMovie.trailerLink) ? cardMovie.trailerLink : backupTrailerLink;
+    window.open(trailerLink);
   }
 
   const handleEditProfileClick = (e) => {
@@ -193,9 +196,9 @@ const App = () => {
 
   const handleSignOut = () => {
     localStorage.removeItem('jwt');
-    sessionStorage.removeItem('movies');
-    sessionStorage.removeItem('form-movies');
-    sessionStorage.removeItem('form-saved-movies');
+    localStorage.removeItem('movies');
+    localStorage.removeItem('form-movies');
+    localStorage.removeItem('form-saved-movies');
     setLoggedIn(false);
     setIsAuthLoading(false);
     setIsRequestSent(false);

@@ -75,7 +75,7 @@ export function useFilterMovies(list) {
   }
 
   const showLastSearchQuery = () => {
-    const searchParameters = getItemSessionStorage(keyForm);
+    const searchParameters = getItemLocalStorage(keyForm);
     setIsFirstRender(true);
 
     if (searchParameters !== null) {
@@ -107,23 +107,23 @@ export function useFilterMovies(list) {
         sortMovies: newParameters ? [] : listSortedMovies,
         sorting: sorted,
       }
-      setItemSessionStorage(keyForm, searchParameters);
+      setItemLocalStorage(keyForm, searchParameters);
     }
   }, [compareResultSorted])
 
-  const setItemSessionStorage = (key, item) => {
-    sessionStorage.setItem(key, JSON.stringify(item));
+  const setItemLocalStorage = (key, item) => {
+    localStorage.setItem(key, JSON.stringify(item));
   }
 
-  const getItemSessionStorage = (key) => {
-    return JSON.parse(sessionStorage.getItem(key));
+  const getItemLocalStorage = (key) => {
+    return JSON.parse(localStorage.getItem(key));
   }
 
   return {
     sortMovies,
     handleSortMovies,
-    setItemSessionStorage,
-    getItemSessionStorage,
+    setItemLocalStorage,
+    getItemLocalStorage,
     showLastSearchQuery,
     handleClickBtnReset,
     checkValuesInput,

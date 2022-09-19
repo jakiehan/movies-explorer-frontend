@@ -10,13 +10,13 @@ export function useRenderingCardsByScreenWidth(listMovies) {
 
   const {
     WINDOW_INNER_WIDTH_LARGE,
-    WINDOW_INNER_WIDTH_MIDDLE,
     WINDOW_INNER_WIDTH_SMALL,
     ADDITIONAL_NUMBER_OF_CARDS_LARGE,
     ADDITIONAL_NUMBER_OF_CARDS_SMALL,
     INITIAL_NUMBER_OF_CARDS_LARGE,
     INITIAL_NUMBER_OF_CARDS_MIDDLE,
-    INITIAL_NUMBER_OF_CARDS_SMALL
+    INITIAL_NUMBER_OF_CARDS_SMALL,
+    ADDITIONAL_NUMBER_OF_CARDS_MIDDLE
   } = RENDERING_CARDS_BY_SCREEN_WIDTH;
 
   const setUpdateTimer = () => {
@@ -25,19 +25,40 @@ export function useRenderingCardsByScreenWidth(listMovies) {
     }, 2000)
   }
 
-  const checkWindowInnerWidth = () => {
+  const defineNumberOfCards = () => {
 
     if (windowInnerWidth >= WINDOW_INNER_WIDTH_LARGE) {
       setInitialNumberOfCards(INITIAL_NUMBER_OF_CARDS_LARGE);
-      setAdditionalNumberOfCards(ADDITIONAL_NUMBER_OF_CARDS_LARGE);
-    } else if (windowInnerWidth > WINDOW_INNER_WIDTH_SMALL && windowInnerWidth < WINDOW_INNER_WIDTH_LARGE) {
+    } else if (windowInnerWidth > WINDOW_INNER_WIDTH_SMALL) {
       setInitialNumberOfCards(INITIAL_NUMBER_OF_CARDS_MIDDLE);
-      setAdditionalNumberOfCards(ADDITIONAL_NUMBER_OF_CARDS_SMALL);
-    } else if (windowInnerWidth < WINDOW_INNER_WIDTH_MIDDLE) {
+    } else {
       setInitialNumberOfCards(INITIAL_NUMBER_OF_CARDS_SMALL);
-      setAdditionalNumberOfCards(ADDITIONAL_NUMBER_OF_CARDS_SMALL);
     }
   }
+
+  const defineAdditionalNumberOfCardsWhenClicked = () => {
+
+    if (windowInnerWidth >= WINDOW_INNER_WIDTH_LARGE) {
+      setAdditionalNumberOfCards(ADDITIONAL_NUMBER_OF_CARDS_LARGE);
+    } else if (windowInnerWidth > WINDOW_INNER_WIDTH_SMALL) {
+      setAdditionalNumberOfCards(ADDITIONAL_NUMBER_OF_CARDS_MIDDLE);
+    } else {
+      setAdditionalNumberOfCards(ADDITIONAL_NUMBER_OF_CARDS_MIDDLE);
+    }
+  }
+
+  const defineAdditionalNumberOfCardsWhenChangingWidth = () => {
+    if ((windowInnerWidth > WINDOW_INNER_WIDTH_SMALL && windowInnerWidth < WINDOW_INNER_WIDTH_LARGE) && (initialNumberOfCards % 2 !== 0)) {
+      setInitialNumberOfCards(initialNumberOfCards + 1)
+    }
+    if (windowInnerWidth > WINDOW_INNER_WIDTH_LARGE && initialNumberOfCards % 3 === 1) {
+      setInitialNumberOfCards(initialNumberOfCards + ADDITIONAL_NUMBER_OF_CARDS_MIDDLE)
+    }
+    if (windowInnerWidth > WINDOW_INNER_WIDTH_LARGE && initialNumberOfCards % 3 === 2) {
+      setInitialNumberOfCards(initialNumberOfCards + ADDITIONAL_NUMBER_OF_CARDS_SMALL)
+    }
+  }
+
 
   useEffect(() => {
     setOnClickMoreButton(false);
@@ -46,7 +67,11 @@ export function useRenderingCardsByScreenWidth(listMovies) {
   useEffect(() => {
 
     if (!onClickMoreButton) {
-      checkWindowInnerWidth();
+      defineNumberOfCards();
+      defineAdditionalNumberOfCardsWhenClicked();
+    } else {
+      defineAdditionalNumberOfCardsWhenChangingWidth();
+      defineAdditionalNumberOfCardsWhenClicked();
     }
 
     window.addEventListener('resize', setUpdateTimer);

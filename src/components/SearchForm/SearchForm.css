@@ -13,12 +13,13 @@
 }
 
 .search__field {
+  line-height: 22px;
   width: 100%;
   padding: 25px 300px 25px 63px;
   color: #fff;
   background-color: #222222;
   border: none;
-  line-height: 22px;
+  box-sizing: border-box;
   outline: none;
   border-radius: 9px;
 }
