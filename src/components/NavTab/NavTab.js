@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
-import './NavTab.css'
+import './NavTab.css';
 
 const NavTab = () => {
   return (
@@ -8,7 +8,7 @@ const NavTab = () => {
       <Link
         to="about-project-section"
         className="nav-tab__link transparency-link"
-        smooth={true}
+        smooth
         duration={500}
       >
         О проекте
@@ -16,7 +16,7 @@ const NavTab = () => {
       <Link
         to="techs-section"
         className="nav-tab__link transparency-link"
-        smooth={true}
+        smooth
         duration={700}
       >
         Технологии
@@ -24,7 +24,7 @@ const NavTab = () => {
       <Link
         to="about-me-section"
         className="nav-tab__link transparency-link"
-        smooth={true}
+        smooth
         duration={700}
       >
         Студент

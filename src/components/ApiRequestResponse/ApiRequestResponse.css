@@ -1,0 +1,16 @@
+.api-request-response {
+  min-height: 14px;
+  text-align: center;
+}
+
+.api-request-response__message {
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 400;
+  color: #FF004C;
+  overflow-wrap: anywhere;
+}
+
+.api-request-response__message_type_ok {
+  color: #4285F4;
+}

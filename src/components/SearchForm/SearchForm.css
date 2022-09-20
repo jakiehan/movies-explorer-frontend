@@ -1,23 +1,42 @@
 .search {
   max-width: calc(100% - 140px);
   width: 100%;
-  margin-bottom: 69px;
+  margin-bottom: 29px;
   position: relative;
 }
 
 .search__form {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search__field {
+  line-height: 22px;
   width: 100%;
   padding: 25px 300px 25px 63px;
   color: #fff;
   background-color: #222222;
   border: none;
-  line-height: 22px;
+  box-sizing: border-box;
   outline: none;
   border-radius: 9px;
+}
+
+/* Обход слета стилей при автозаполнении */
+.search__field:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 50px #222222;
+  -webkit-text-fill-color: #fff;
+  -webkit-border-radius: 8px;
+}
+
+.search__field:-webkit-autofill:focus {
+  box-shadow: 0 1px 5px rgb(66, 133, 244, .9), inset 0 0 0 50px #222222;
+}
+
+.search__field:-webkit-autofill:hover {
+  box-shadow: 0 1px 5px rgb(66, 133, 244, .9), inset 0 0 0 50px #222222;
 }
 
 .search__icon {
@@ -27,18 +46,35 @@
 }
 
 .search__btn {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.search__btn_type_submit {
   position: absolute;
   top: 19px;
   right: 246px;
-  background-color: transparent;
   background-image: url(../../images/search-btn.svg);
   background-repeat: no-repeat;
   background-position: 50%;
-  border: none;
   width: 34px;
   height: 34px;
-  padding: 0;
-  cursor: pointer;
+}
+
+.search__btn_type_reset {
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+  color: #EE3465;
+  margin-top: 10px;
+  width: 150px;
+  height: 30px;
+}
+
+.search__btn_visibility_hidden {
+  visibility: hidden;
 }
 
 .transparency-btn {
@@ -85,9 +121,9 @@
 @media screen and (max-width: 934px) {
   .search {
     max-width: calc(100% - 60px);
-    margin-bottom: 109px;
+    margin-bottom: 69px;
   }
-  .search__btn {
+  .search__btn_type_submit {
     right: 227px;
   }
   .search__field {
@@ -98,14 +134,13 @@
 @media screen and (max-width: 720px) {
   .search {
     max-width: calc(100% - 20px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 35px;
+    margin-bottom: 0;
   }
 
   .search__form {
-    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .search__icon {
@@ -117,8 +152,14 @@
     padding-right: 70px;
   }
 
-  .search__btn {
+  .search__btn_type_submit {
     right: 19px;
+  }
+
+  .search__btn_type_reset {
+    font-size: 11px;
+    line-height: 13px;
+    margin-top: 5px;
   }
 
   .search__field::placeholder {

@@ -1,8 +1,7 @@
 import React from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
-import { Outlet } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 
 const Layout = ({ onMenuBurger, isActive }) => {
 
@@ -10,27 +9,24 @@ const Layout = ({ onMenuBurger, isActive }) => {
 
   return (
     <>
-      {location === '/profile'
-        ? (
-          <>
-            <Header
-              onMenuBurger={onMenuBurger}
-              isActive={isActive}
-            />
-            <Outlet />
-          </>
-        )
-        : (
-          <>
-            <Header
-              onMenuBurger={onMenuBurger}
-              isActive={isActive}
-            />
-            <Outlet />
-            <Footer />
-          </>
-        )
-      }
+      {location === '/profile' ? (
+        <>
+          <Header
+            onMenuBurger={onMenuBurger}
+            isActive={isActive}
+          />
+          <Outlet />
+        </>
+      ) : (
+        <>
+          <Header
+            onMenuBurger={onMenuBurger}
+            isActive={isActive}
+          />
+          <Outlet />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

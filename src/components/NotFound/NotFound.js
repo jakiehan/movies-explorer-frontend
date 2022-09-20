@@ -19,7 +19,10 @@ const NotFound = () => {
         className="not-found__btn transparency-link"
         type="button"
         aria-label="Back button"
-        onClick={goBack}>Назад</button>
+        onClick={goBack}
+      >
+        Назад
+      </button>
     </div>
   );
 };
